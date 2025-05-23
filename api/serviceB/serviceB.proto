@@ -1,0 +1,22 @@
+// serviceB.proto
+syntax = "proto3";
+
+package serviceB;
+
+option go_package = "go-microservices/microservices/pb;pb";
+
+// 请求消息：传入一个字符串参数
+message ReqB {
+  string param = 1;
+}
+
+// 响应消息：返回一个数据字符串
+message RespB {
+  string data = 1;
+}
+
+// 定义 ServiceB 服务
+service ServiceB {
+  // BarB 接口，接收 ReqB，返回 RespB
+  rpc BarB(ReqB) returns (RespB);
+}

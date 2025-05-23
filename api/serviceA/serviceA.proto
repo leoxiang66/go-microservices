@@ -1,0 +1,22 @@
+// serviceA.proto
+syntax = "proto3";
+
+package serviceA;
+
+option go_package = "go-microservices/microservices/pb;pb";
+
+// 请求消息：传入一个字符串参数
+message ReqA {
+  string param = 1;
+}
+
+// 响应消息：返回一个结果字符串
+message RespA {
+  string result = 1;
+}
+
+// 定义 ServiceA 服务
+service ServiceA {
+  // FooA 接口，接收 ReqA，返回 RespA
+  rpc FooA(ReqA) returns (RespA);
+}
